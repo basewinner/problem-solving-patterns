@@ -8,10 +8,13 @@
  *  MDN reduce -> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
  */
  function twoArrayObject(keys, values) {
-  return keys.reduce((obj, cur, idx) => {
-    obj[cur] = idx < values.length ? values[idx] : null;
-    return obj;
-  }, {});
+  let resultDict = {};
+
+  keys.forEach(function(key, index) {
+    resultDict[key] = index < values.length ? values[index] : null;
+  });
+
+  return resultDict;
 }
 
 module.exports = { twoArrayObject}
